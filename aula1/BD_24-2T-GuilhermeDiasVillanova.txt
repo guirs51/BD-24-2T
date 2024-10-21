@@ -1,0 +1,23 @@
+BD24-2T 
+
+1.1988
+
+
+2.o criador do sistema Elmar
+
+
+3. banco dados é onde é onde fica guardado os dados/informações. 
+sistema gerenciador de banco de dados nos permite incluir ou excluir  dados/informações, mexer nos dados. 
+sistema de banco de dados nós da a visualização dos dados, sem poder mexer neles
+
+4. guarda informação, excluir ,  
+
+
+5. os diferentes níveis são aqueles onde nós, devs, entendemos melhor, e aqueles que o computador entende melhor 
+
+
+6. guarda informações, assim não precisando ter que refazer ou pedir novamente os dados do usuário. 
+
+
+
+
