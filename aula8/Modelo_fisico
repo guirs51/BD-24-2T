@@ -1,0 +1,157 @@
+/* Lógico_1: */
+
+CREATE TABLE Team (
+    ID_Team Number PRIMARY KEY
+);
+
+CREATE TABLE player (
+    Level Number,
+    Score Number,
+    Region String,
+    User_Name String,
+    ID_Playaer Number PRIMARY KEY
+);
+
+CREATE TABLE Player_Match_Game (
+    fk_player_ID_Playaer Number,
+    fk_Match_ID_Match Number
+);
+
+CREATE TABLE Match (
+    Results Number,
+    Duration Number,
+    Date_Time Number,
+    ID_Match Number PRIMARY KEY
+);
+
+CREATE TABLE Champion (
+    Name String,
+    Ability String,
+    Damage_Type String,
+    Function String,
+    ID_Champion Number PRIMARY KEY
+);
+
+CREATE TABLE Item (
+    Cost String,
+    Description String,
+    Effect String,
+    Name String,
+    ID_Item Number PRIMARY KEY
+);
+
+CREATE TABLE Offensive_Item (
+    Magic_Damage Number,
+    Physic_Damage Number,
+    fk_Item_ID_Item Number PRIMARY KEY
+);
+
+CREATE TABLE Defensive_Item (
+    Armor Number,
+    Res_Magic String,
+    fk_Item_ID_Item Number PRIMARY KEY
+);
+
+CREATE TABLE Consumable (
+    Sss String,
+    LR String,
+    fk_Item_ID_Item Number PRIMARY KEY
+);
+
+CREATE TABLE has (
+    fk_Team_ID_Team Number,
+    fk_player_ID_Playaer Number
+);
+
+CREATE TABLE Has (
+    fk_player_ID_Playaer Number,
+    fk_Champion_ID_Champion Number
+);
+
+CREATE TABLE Has (
+    fk_Team_ID_Team Number,
+    fk_Match_ID_Match Number
+);
+
+CREATE TABLE Participate (
+    fk_Champion_ID_Champion Number,
+    fk_Match_ID_Match Number
+);
+
+CREATE TABLE Buy (
+    fk_Item_ID_Item Number,
+    fk_Match_ID_Match Number
+);
+ 
+ALTER TABLE Player_Match_Game ADD CONSTRAINT FK_Player_Match_Game_1
+    FOREIGN KEY (fk_player_ID_Playaer)
+    REFERENCES player (ID_Playaer);
+ 
+ALTER TABLE Player_Match_Game ADD CONSTRAINT FK_Player_Match_Game_2
+    FOREIGN KEY (fk_Match_ID_Match)
+    REFERENCES Match (ID_Match);
+ 
+ALTER TABLE Offensive_Item ADD CONSTRAINT FK_Offensive_Item_2
+    FOREIGN KEY (fk_Item_ID_Item)
+    REFERENCES Item (ID_Item)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE Defensive_Item ADD CONSTRAINT FK_Defensive_Item_2
+    FOREIGN KEY (fk_Item_ID_Item)
+    REFERENCES Item (ID_Item)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE Consumable ADD CONSTRAINT FK_Consumable_2
+    FOREIGN KEY (fk_Item_ID_Item)
+    REFERENCES Item (ID_Item)
+    ON DELETE CASCADE;
+ 
+ALTER TABLE has ADD CONSTRAINT FK_has_1
+    FOREIGN KEY (fk_Team_ID_Team)
+    REFERENCES Team (ID_Team)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE has ADD CONSTRAINT FK_has_2
+    FOREIGN KEY (fk_player_ID_Playaer)
+    REFERENCES player (ID_Playaer)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Has ADD CONSTRAINT FK_Has_1
+    FOREIGN KEY (fk_player_ID_Playaer)
+    REFERENCES player (ID_Playaer)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Has ADD CONSTRAINT FK_Has_2
+    FOREIGN KEY (fk_Champion_ID_Champion)
+    REFERENCES Champion (ID_Champion)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Has ADD CONSTRAINT FK_Has_1
+    FOREIGN KEY (fk_Team_ID_Team)
+    REFERENCES Team (ID_Team)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Has ADD CONSTRAINT FK_Has_2
+    FOREIGN KEY (fk_Match_ID_Match)
+    REFERENCES Match (ID_Match)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Participate ADD CONSTRAINT FK_Participate_1
+    FOREIGN KEY (fk_Champion_ID_Champion)
+    REFERENCES Champion (ID_Champion)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Participate ADD CONSTRAINT FK_Participate_2
+    FOREIGN KEY (fk_Match_ID_Match)
+    REFERENCES Match (ID_Match)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Buy ADD CONSTRAINT FK_Buy_1
+    FOREIGN KEY (fk_Item_ID_Item)
+    REFERENCES Item (ID_Item)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE Buy ADD CONSTRAINT FK_Buy_2
+    FOREIGN KEY (fk_Match_ID_Match)
+    REFERENCES Match (ID_Match)
+    ON DELETE SET NULL;
