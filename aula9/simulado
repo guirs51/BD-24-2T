@@ -1,0 +1,119 @@
+/* Lógico_1: */
+
+CREATE TABLE Usuario (
+    ID_Usuario number(4) PRIMARY KEY,
+    ID_Filme number(4),
+    ID_Serie Number(4),
+    ID_Plano Number(4),
+    ID_Favorito Number(4),
+    ID_Desejo Number(4),
+    ID_Avaliaçao Number(4),
+    Nome_Usuario String(20),
+    Email String(40)
+);
+
+CREATE TABLE Filme (
+    ID_Filme number(4) PRIMARY KEY,
+    Nome_Filme String(25),
+    Classificação_Filme String(20),
+    Duracao_Filme String(50)
+);
+
+CREATE TABLE Gênero (
+    ID_Genero number(4) PRIMARY KEY,
+    ID_Filme number(4),
+    ID_Serie Number(4),
+    Tipos_Generos String(20),
+    Quantidade_Generos Number(10)
+);
+
+CREATE TABLE Episódio (
+    ID_Episodio Number(4) PRIMARY KEY,
+    Nome_Episodio Number(20),
+    Quantidade_Episodio Number(60),
+    Duracao_Episodio String(30)
+);
+
+CREATE TABLE Avaliação (
+    ID_Avaliacao Number(4) PRIMARY KEY,
+    ID_Series Number(4),
+    ID_FIlme number(4),
+    TIpo_avaliacao String(10),
+    Nota_Valiacao Number(5)
+);
+
+CREATE TABLE ListaDeDesejos (
+    ID_Lista_Desejos Number(4) PRIMARY KEY,
+    Quantidade_De_Desejos Number(10),
+    Nome_Desejo String(10)
+);
+
+CREATE TABLE Series  (
+    ID_Serie Number(4) PRIMARY KEY,
+    ID_Episodio Number(4),
+    Nome_serie String(50),
+    Classificacao_serie String(20)
+);
+
+CREATE TABLE Planos (
+    ID_Plano Number(4) PRIMARY KEY,
+    Tipo_Plano String(20),
+    Valor_Plano Number(5)
+);
+
+CREATE TABLE Favoritos (
+    ID_Favoritos Number(4) PRIMARY KEY,
+    Quantidade Number(10)
+);
+ 
+ALTER TABLE Usuario ADD CONSTRAINT FK_Usuario_2
+    FOREIGN KEY (ID_Filme)
+    REFERENCES Filme (ID_Filme);
+ 
+ALTER TABLE Usuario ADD CONSTRAINT FK_Usuario_3
+    FOREIGN KEY (ID_Serie)
+    REFERENCES Series  (ID_Serie);
+ 
+ALTER TABLE Usuario ADD CONSTRAINT FK_Usuario_4
+    FOREIGN KEY (ID_Plano)
+    REFERENCES Planos (ID_Plano);
+ 
+ALTER TABLE Usuario ADD CONSTRAINT FK_Usuario_5
+    FOREIGN KEY (ID_Favorito)
+    REFERENCES Favoritos (ID_Favoritos);
+ 
+ALTER TABLE Usuario ADD CONSTRAINT FK_Usuario_6
+    FOREIGN KEY (ID_Desejo)
+    REFERENCES ListaDeDesejos (ID_Lista_Desejos);
+ 
+ALTER TABLE Usuario ADD CONSTRAINT FK_Usuario_7
+    FOREIGN KEY (ID_Avaliaçao)
+    REFERENCES Avaliação (ID_Avaliacao);
+ 
+ALTER TABLE Gênero ADD CONSTRAINT FK_Gênero_2
+    FOREIGN KEY (ID_Filme)
+    REFERENCES Filme (ID_Filme);
+ 
+ALTER TABLE Gênero ADD CONSTRAINT FK_Gênero_3
+    FOREIGN KEY (ID_Serie)
+    REFERENCES Series  (ID_Serie);
+ 
+ALTER TABLE Episódio ADD CONSTRAINT FK_Episódio_2
+    FOREIGN KEY (Duracao_Episodio)
+    REFERENCES Series  (ID_Serie);
+ 
+ALTER TABLE Avaliação ADD CONSTRAINT FK_Avaliação_2
+    FOREIGN KEY (ID_Series)
+    REFERENCES Series  (ID_Serie);
+ 
+ALTER TABLE Avaliação ADD CONSTRAINT FK_Avaliação_3
+    FOREIGN KEY (ID_FIlme)
+    REFERENCES Filme (ID_Filme);
+ 
+ALTER TABLE Series  ADD CONSTRAINT FK_Series _2
+    FOREIGN KEY (ID_Episodio)
+    REFERENCES Episódio (ID_Episodio);
+ 
+ALTER TABLE Favoritos ADD CONSTRAINT FK_Favoritos_2
+    FOREIGN KEY (ID_Filme_Favo???, ID_Serie_Favo???, ID_Serie_Fav???, ID_Filme_Fav???, Campo???, ID_Filme???, ID_Series)
+    REFERENCES Series  (???, ???, ???, ???, ???, ???, ID_Serie);
