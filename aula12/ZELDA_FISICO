@@ -1,0 +1,46 @@
+/* L�gico_1: */
+
+CREATE TABLE Personagem_item (
+    ID_do_personagem INT,
+    personagem_nome VARCHAR(40),
+    raca VARCHAR(20),
+    descricao_do_personagem TEXT ,
+    afiliacao VARCHAR(20),
+    ID_item INT ,
+    item_nome VARCHAR(30),
+    tipo_do_item VARCHAR(20),
+    efeito TEXT ,
+    raridade INT
+);
+
+CREATE TABLE locais (
+    ID_local INT,
+    local_nome VARCAHR(30),
+    descricao_do_local TEXT,
+    tipo_do_local VARCHAR(30)
+);
+
+CREATE TABLE relacao (
+    amizade VARCAHR(20),
+    rivalidade VARCHAR(20),
+    ID_relacao INT
+);
+
+CREATE TABLE zora (
+    aumento_na_velocidade INT,
+    fk_Personagem_ID_do_personagem INT
+);
+
+CREATE TABLE humano (
+    aumenta_na_resistencia_ INT,
+    fk_Personagem_ID_do_personagem INT
+);
+
+CREATE TABLE fada (
+    voar INT,
+    fk_Personagem_ID_do_personagem INT
+);
+
+CREATE TABLE personagem_item (
+    quantidade INT
+);
