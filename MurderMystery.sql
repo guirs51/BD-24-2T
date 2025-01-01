@@ -25,3 +25,17 @@ inner join get_fit_now_member as gf on p.id = gf.person_id -- dizendo outra tabl
 inner join get_fit_now_check_in as ci on gf.id = ci.membership_id -- dizendo outra table  e buscando uma relção entre as cheves primaria e estangeira
 where plate_number like '%H42W%' -- condiçao para buscar resultados onde a placa tinha essa esses letras e numeros
 and membership_status = 'gold' -- condição para buscar somente o membro com status "gold"
+
+select *  -- selecionando tods os atributos 
+from interview -- dizendo a tabela 
+where person_id = 67318 -- condição para buscar somente esse person_id 
+
+select p.*, fb.*  -- selecionando todos os atributos das tabelas P e FB
+from drivers_license as dl -- dizendo uma tabela e mudando o nome para busca
+inner join person  as p on dl.id = p.license_id --dizendo uma tabela e mudando o nome para busca 
+inner join facebook_event_checkin as fb on fb.person_id = p.id -- dizendo uma tabela e mudando o nome para busca
+where hair_color = 'red' -- condição para busca
+and gender = 'female' -- condição para busca
+and car_make = 'Tesla' -- condição para busca
+
+-- nome do vilã: Miranda Priestly
